@@ -1,0 +1,18 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: lightgray;
+  width: 100%;
+
+  .main-view {
+    display: flex;
+    flex: 1;
+    width: 100%;
+  }
+  footer,
+  header {
+    height: 10%;
+    background-color: lightcoral;
+  }
+}

@@ -10,6 +10,7 @@ import { MailComponent } from './pages/mail/mail.component';
 import { ComposeComponent } from './cmps/compose/compose.component';
 import { MailDetailsComponent } from './pages/mail-details/mail-details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { MailBoardComponent } from './pages/mail-board/mail-board.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     ComposeComponent,
     MailDetailsComponent,
     NotFoundComponent,
+    MailBoardComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
