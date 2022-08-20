@@ -11,8 +11,9 @@
     width: 100%;
   }
   footer,
-  header {
-    height: 10%;
+  app-header {
+    height: 10vh;
+    width: 100%;
     background-color: lightcoral;
   }
 }
