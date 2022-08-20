@@ -23,8 +23,7 @@ const routes: Routes = [
           },
         ],
       },
-
-      { path: 'mail/:id', component: MailDetailsComponent },
+      { path: ':id', component: MailDetailsComponent },
     ],
   },
 
