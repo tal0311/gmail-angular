@@ -20,6 +20,7 @@ import { ActionsComponent } from './cmps/actions/actions.component';
 import { LogoComponent } from './cmps/logo/logo.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component
     UserMsgComponent,
     MailPreviewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })
