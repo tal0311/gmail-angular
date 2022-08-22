@@ -6,6 +6,7 @@ import { ComposeComponent } from './cmps/compose/compose.component';
 import { MailDetailsComponent } from './pages/mail-details/mail-details.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { MailBoardComponent } from './pages/mail-board/mail-board.component';
+import { MailResolver } from './services/mail.resolver';
 
 const routes: Routes = [
   { path: '', component: MailAppComponent },
@@ -23,7 +24,11 @@ const routes: Routes = [
           },
         ],
       },
-      { path: ':id', component: MailDetailsComponent },
+      {
+        path: ':id',
+        component: MailDetailsComponent,
+        resolve: { mail: MailResolver },
+      },
     ],
   },
 

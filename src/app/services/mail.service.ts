@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Mail } from '../models/mail';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 export class MailService {
   constructor(private httpClient: HttpClient) {}
 
-  _mailsDb: any;
-
-  private _mails$ = new BehaviorSubject<any>([]);
+  _mailsDb!: Mail[] | any;
+  key: string = 'mail';
+  private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
   // private _filterBy$ = new BehaviorSubject<PetFilter>({ term: '' });
@@ -19,15 +20,22 @@ export class MailService {
 
   public query() {
     console.log('ms query');
+    const mailsFromStorage: any | null = this.loadFromStorage(this.key) || null;
+    console.log(mailsFromStorage);
+    if (mailsFromStorage) {
+      this._mailsDb = mailsFromStorage;
+      this._mails$.next(mailsFromStorage);
+      return;
+    }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
-      // console.log(mails);
       this._mailsDb = mails;
+      this.saveToStorage(this.key, this._mailsDb);
     });
     // const filterBy = this._filterBy$.getValue();
-    const mails = this._mailsDb;
+
     // console.log(mails);
-    this._mails$.next(mails);
+    this._mails$.next(this._mailsDb);
   }
 
   // public shouldAdoptPet() {
@@ -36,10 +44,19 @@ export class MailService {
   //     .pipe(map((res) => res.answer));
   // }
 
-  // public getEmptyPet() {
-  //   return { name: '', age: 0, birthDate: new Date() };
-  // }
-
+  public getEmptyPet() {
+    return {
+      from: {
+        name: '',
+        id: '',
+      },
+      subject: '',
+      body: '',
+      isRead: false,
+      sentAt: Date.now(),
+      to: '',
+    };
+  }
   // public remove(petId: string) {
   //   const pets = this._mailsDb;
   //   const petIdx = pets.findIndex((pet) => pet._id === petId);
@@ -48,10 +65,11 @@ export class MailService {
   //   return of({});
   // }
 
-  // public getById(petId: string): Observable<Pet> {
-  //   const pet = this._mailsDb.find((pet) => pet._id === petId);
-  //   return of({ ...pet });
-  // }
+  public getById(mailId: string): Observable<Mail> {
+    this.query();
+    const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
+    return of({ ...mail });
+  }
 
   // public setFilterBy(filterBy: PetFilter) {
   //   this._filterBy$.next({ ...filterBy });
@@ -86,4 +104,11 @@ export class MailService {
   //   }
   //   return text;
   // }
+
+  private loadFromStorage(key: string) {
+    return JSON.parse(localStorage.getItem(key) || 'null');
+  }
+  private saveToStorage(key: string, value: Mail[]) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
 }

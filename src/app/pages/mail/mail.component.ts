@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MailComponent implements OnInit {
   constructor() {}
-
+  // created
   ngOnInit(): void {}
+
+  // data
+
+  // methods
+
+  // created
 }

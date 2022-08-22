@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,14 @@ import { Component, Input, OnInit } from '@angular/core';
 export class MailPreviewComponent implements OnInit {
   @Input() mail: any;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  // methods
+
+  navigateTo(mailId: string) {
+    console.log(mailId);
+    this.router.navigateByUrl(`mail/${mailId}`);
+  }
 }

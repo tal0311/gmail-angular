@@ -1,4 +1,4 @@
-<section class="mail-preview">
+<section class="mail-preview" (click)="navigateTo(mail.id)">
   <app-user-preview [user]="mail.from"></app-user-preview>
   <p class="subject">{{ mail.subject }}</p>
   <p>{{ mail.sentAt | date }}</p>

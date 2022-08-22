@@ -17,8 +17,9 @@ export class MailListComponent implements OnInit {
   mails: any;
   // created
   ngOnInit(): void {
-    console.log(this.mails);
     this.mailService.query();
+    console.log('mail-list');
+
     this.mailService.mails$.subscribe((mails) => {
       this.mails = mails;
     });
