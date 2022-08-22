@@ -18,7 +18,7 @@ export class MailService {
   // public filterBy$ = this._filterBy$.asObservable();
 
   public query() {
-    console.log('query');
+    console.log('ms query');
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
       // console.log(mails);

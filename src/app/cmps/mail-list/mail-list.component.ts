@@ -12,16 +12,16 @@ export class MailListComponent implements OnInit {
   // emits
 
   // services
-  constructor() {}
+  constructor(private mailService: MailService) {}
   // data
-
+  mails: any;
   // created
   ngOnInit(): void {
-    // console.log(this.mails);
-    // this.mailService.query();
-    // this.mailService.mails$.subscribe((mails) => {
-    //   this.mails = mails;
-    // });
+    console.log(this.mails);
+    this.mailService.query();
+    this.mailService.mails$.subscribe((mails) => {
+      this.mails = mails;
+    });
   }
   // data
 
