@@ -1,0 +1,5 @@
+<section class="mail-preview">
+  <app-user-preview [user]="mail.from"></app-user-preview>
+  <p class="subject">{{ mail.subject }}</p>
+  <p>{{ mail.sentAt | date }}</p>
+</section>
