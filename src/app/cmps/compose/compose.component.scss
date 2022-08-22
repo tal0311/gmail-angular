@@ -1,0 +1,12 @@
+.mail-compose {
+  position: fixed;
+  bottom: 0;
+  background-color: #fff;
+  height: 40%;
+  width: 35%;
+  right: 15rem;
+
+  &.minimize {
+    height: 5%;
+  }
+}

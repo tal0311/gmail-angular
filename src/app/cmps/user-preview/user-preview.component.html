@@ -1,3 +1,6 @@
-<section class="user-preview">
-  <p>user-preview works!</p>
+<section class="user-preview flex a-center j-center">
+  <div>
+    <img *ngIf="user.img" src="" alt="" />
+    <p>{{ user.name.substring(0, 1) }}</p>
+  </div>
 </section>

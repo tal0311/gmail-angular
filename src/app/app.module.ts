@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,6 +18,8 @@ import { HeaderComponent } from './cmps/header/header.component';
 import { LabelListComponent } from './cmps/label-list/label-list.component';
 import { ActionsComponent } from './cmps/actions/actions.component';
 import { LogoComponent } from './cmps/logo/logo.component';
+import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
+import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,10 @@ import { LogoComponent } from './cmps/logo/logo.component';
     LabelListComponent,
     ActionsComponent,
     LogoComponent,
+    UserMsgComponent,
+    MailPreviewComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
