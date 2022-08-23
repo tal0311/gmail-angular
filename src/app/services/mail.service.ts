@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
@@ -66,7 +66,6 @@ export class MailService {
   // }
 
   public getById(mailId: string): Observable<Mail> {
-    this.query();
     const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
     return of({ ...mail });
   }

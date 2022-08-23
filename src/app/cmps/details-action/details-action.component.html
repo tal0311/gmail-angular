@@ -1,1 +1,13 @@
-<p>details-action works!</p>
+<section class="details-action">
+  <div class="actions-container flex">
+    <div class="btn-set" *ngFor="let actionSet of actions">
+      <button
+        *ngFor="let action of actionSet"
+        ngClass="{{ action.icon }}"
+        title="{{ action.title }}"
+        (click)="onAction(action.value)"
+      ></button
+      ><span class="divider">|</span>
+    </div>
+  </div>
+</section>
