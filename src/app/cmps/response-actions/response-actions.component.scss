@@ -1,0 +1,21 @@
+.response-action {
+  background-color: #fff;
+
+  button {
+    margin-inline-start: 1em;
+    transition: all ease-in-out 0.2s;
+    padding: 0.8em 1.2em;
+    border-radius: 3em;
+    background: none;
+    border: 2px solid #555;
+    color: #555;
+
+    span {
+      padding-inline-start: 1em;
+    }
+    &:hover {
+      background-color: #e8e8e8;
+      // color: #fff;
+    }
+  }
+}

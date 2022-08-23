@@ -1,20 +1,22 @@
 <section *ngIf="mail" class="mail-details">
-  <!-- details-action cmp -->
   <app-details-action></app-details-action>
-  <section class="mail-container">
+  <section class="mail-container flex">
     <h1 class="mail-subject">{{ mail.subject || "no subject" }}</h1>
     <section class="from-container flex a-center">
       <app-user-preview [user]="mail.from"></app-user-preview>
-      <div class="from-actions">
-        <span>{{ mail.sentAt | date }}</span>
-        <span>star</span>
-        <span>replay</span>
-        <span>more</span>
+      <div class="from-actions flex">
+        <time>{{ mail.sentAt | date }}</time>
+        <button class="action flex a-center j-center">
+          <i class="fa-solid fa-reply"></i>
+        </button>
+        <button class="action"><i class="fa-solid fa-star"></i></button>
+        <button class="action">
+          <i class="fa-solid fa-ellipsis-vertical"></i>
+        </button>
       </div>
     </section>
-    <p>{{ mail.body }}</p>
+    <p class="mail-body">{{ mail.body }}</p>
     <!-- replay forward -->
     <app-response-actions></app-response-actions>
   </section>
-  <pre>{{ mail | json }}</pre>
 </section>

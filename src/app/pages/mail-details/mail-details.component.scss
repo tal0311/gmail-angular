@@ -1,8 +1,36 @@
 .mail-details {
-  background-color: rgb(236, 181, 44);
   height: 100%;
 
-  .from-container {
-    justify-content: space-between;
+  .mail-container {
+    height: 90%;
+    flex-direction: column;
+    padding: 1rem;
+    .from-container {
+      justify-content: space-between;
+      .from-actions {
+        .action {
+          background: none;
+          border: none;
+          margin-inline: 0.2em;
+          height: 1.5rem;
+          width: 1.5rem;
+          border-radius: 50%;
+          &:hover {
+            background-color: #e8e8e8;
+          }
+        }
+        .fa-solid {
+          transition: all ease-in-out 0.2s;
+          color: #222;
+          font-size: 0.8rem;
+          cursor: pointer;
+        }
+      }
+    }
+    .mail-body {
+      flex-grow: 1;
+      background-color: #fff;
+      font-size: 2rem;
+    }
   }
 }
