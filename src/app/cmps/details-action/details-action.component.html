@@ -1,14 +1,15 @@
 <section class="details-action">
   <div class="actions-container flex">
-    <div class="btn-set" *ngFor="let actionSet of actions">
+    <div class="btn-set flex" *ngFor="let actionSet of actions">
       <button
+        class="action flex a-center j-center"
         *ngFor="let action of actionSet"
-        class="{{ action.icon }} action"
         data-title="{{ action.title }}"
         (click)="onAction(action.value)"
-      ></button>
-
-      <span class="divider">|</span>
+      >
+        <i [class]="action.icon"></i>
+      </button>
+      <!-- <span class="divider">|</span> -->
     </div>
   </div>
 </section>

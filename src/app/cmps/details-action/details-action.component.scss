@@ -1,24 +1,25 @@
 .details-action {
-  background-color: red;
-
   .actions-container {
-    background-color: greenyellow;
+    background-color: #333;
     // max-width: 50%;
   }
 
   .action {
-    &.fa-solid {
+    background: none;
+    border: none;
+    background: #333;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    &:hover:not(.fa-ellipsis-vertical) {
+      background-color: #555;
+    }
+    .fa-solid {
+      text-align: center;
       transition: all ease-in-out 0.2s;
       color: #fff;
-      padding: 0.8rem;
-      border-radius: 50%;
-      background: none;
-      border: none;
       font-size: 1.5rem;
       cursor: pointer;
-      &:hover:not(.fa-ellipsis-vertical) {
-        background-color: green;
-      }
     }
   }
 }
