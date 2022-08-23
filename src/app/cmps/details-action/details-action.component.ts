@@ -11,10 +11,14 @@ export class DetailsActionComponent implements OnInit {
   // data
   actions = [
     [
-      { icon: 'fa-solid fa-arrow-left', title: 'back', value: 'back' },
-      { icon: 'fa-solid fa-box-archive', title: 'arc', value: 'archive' },
-      { icon: 'fa-solid fa-circle-exclamation', title: 'spam', value: 'spam' },
-      { icon: 'fa-solid fa-trash-can', title: 'remove', value: 'remove' },
+      { icon: 'fa-solid fa-arrow-left', title: 'Back', value: 'back' },
+      { icon: 'fa-solid fa-box-archive', title: 'Archive', value: 'archive' },
+      {
+        icon: 'fa-solid fa-circle-exclamation',
+        title: 'Move to spam',
+        value: 'spam',
+      },
+      { icon: 'fa-solid fa-trash-can', title: 'Remove', value: 'remove' },
     ],
     [
       { icon: 'fa-solid fa-envelope', title: 'Mark', value: 'isUnread' },

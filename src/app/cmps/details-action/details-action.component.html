@@ -3,11 +3,12 @@
     <div class="btn-set" *ngFor="let actionSet of actions">
       <button
         *ngFor="let action of actionSet"
-        ngClass="{{ action.icon }}"
-        title="{{ action.title }}"
+        class="{{ action.icon }} action"
+        data-title="{{ action.title }}"
         (click)="onAction(action.value)"
-      ></button
-      ><span class="divider">|</span>
+      ></button>
+
+      <span class="divider">|</span>
     </div>
   </div>
 </section>
