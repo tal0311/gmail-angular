@@ -1,10 +1,12 @@
+@import "../../../assets/styles/variables";
 .user-msg {
   position: fixed;
   height: 3rem;
   width: fit-content;
   bottom: 1rem;
-  right: 2rem;
+  left: 5rem;
   padding: 0.5rem 1.2rem;
   background-color: #333;
   color: #e2e2e2;
+  border-radius: $b-radius;
 }

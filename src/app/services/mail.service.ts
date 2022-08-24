@@ -15,13 +15,14 @@ export class MailService {
   private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
-  // private _filterBy$ = new BehaviorSubject<PetFilter>({ term: '' });
-  // public filterBy$ = this._filterBy$.asObservable();
+  private _filterBy$ = new BehaviorSubject<any>({ term: '' });
+  public filterBy$ = this._filterBy$.asObservable();
 
   public query() {
     console.log('ms query');
     const mailsFromStorage: any | null = this.loadFromStorage(this.key) || null;
     console.log(mailsFromStorage);
+
     if (mailsFromStorage) {
       this._mailsDb = mailsFromStorage;
       this._mails$.next(mailsFromStorage);

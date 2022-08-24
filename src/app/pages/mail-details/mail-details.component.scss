@@ -1,6 +1,7 @@
 .mail-details {
   height: 100%;
 
+  @import "./../../../assets/styles/_variables.scss";
   .mail-container {
     height: 90%;
     flex-direction: column;
@@ -16,7 +17,7 @@
           width: 1.5rem;
           border-radius: 50%;
           &:hover {
-            background-color: #e8e8e8;
+            background-color: $clr1Hover;
           }
         }
         .fa-solid {

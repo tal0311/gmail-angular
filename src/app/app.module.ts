@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './cmps/app-root/app.component';
 import { MailListComponent } from './cmps/mail-list/mail-list.component';
 import { SideBarComponent } from './cmps/side-bar/side-bar.component';
