@@ -1,3 +1,6 @@
 <section class="mail-list">
-  <app-mail-preview *ngFor="let mail of mails" [mail]="mail"></app-mail-preview>
+  <app-mail-preview
+    *ngFor="let mail of mails$ | async"
+    [mail]="mail"
+  ></app-mail-preview>
 </section>
