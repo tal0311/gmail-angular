@@ -2,9 +2,10 @@
   <article
     ngClass="side-bar-label {{ label.name }}"
     *ngFor="let label of labels"
-    (click)="setRoute(label.route)"
   >
-    <span>{{ label.icon }}</span>
-    <span>{{ label.name }}</span>
+    <a [routerLink]="['/mail/all']" [queryParams]="{ tab: label.value }">
+      <span>{{ label.icon }}</span>
+      <span>{{ label.name }}</span>
+    </a>
   </article>
 </section>

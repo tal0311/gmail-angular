@@ -1,24 +1,36 @@
 .details-action {
   .actions-container {
-    background-color: #333;
     // max-width: 50%;
   }
 
+  .nav-container {
+    .btn-set {
+      .divider {
+        font-size: 1em;
+        align-self: center;
+        color: #c3c3c3;
+      }
+    }
+  }
+
   .action {
+    transition: 0.2s ease;
     background: none;
     border: none;
-    background: #333;
-    height: 3rem;
-    width: 3rem;
+    height: 2rem;
+    width: 2rem;
     border-radius: 50%;
-    &:hover:not(.fa-ellipsis-vertical) {
-      background-color: #555;
+    &:hover {
+      background-color: #5555;
+      i {
+        transition: 0.2s ease;
+      }
     }
     .fa-solid {
       text-align: center;
       transition: all ease-in-out 0.2s;
-      color: #fff;
-      font-size: 1.5rem;
+      color: #555;
+      font-size: 1rem;
       cursor: pointer;
     }
   }

@@ -24,6 +24,7 @@ import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsActionComponent } from './cmps/details-action/details-action.component';
 import { ResponseActionsComponent } from './cmps/response-actions/response-actions.component';
+import { MoreOptionsComponent } from './cmps/more-options/more-options.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ResponseActionsComponent } from './cmps/response-actions/response-actio
     MailPreviewComponent,
     DetailsActionComponent,
     ResponseActionsComponent,
+    MoreOptionsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],

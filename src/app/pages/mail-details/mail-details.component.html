@@ -1,5 +1,5 @@
 <section *ngIf="mail" class="mail-details">
-  <app-details-action></app-details-action>
+  <app-details-action (updateMail)="update($event)"></app-details-action>
   <section class="mail-container flex">
     <h1 class="mail-subject">{{ mail.subject || "no subject" }}</h1>
     <section class="from-container flex a-center">

@@ -16,7 +16,6 @@ export class MailPreviewComponent implements OnInit {
   // methods
 
   navigateTo(mailId: string) {
-    console.log(mailId);
     this.router.navigateByUrl(`mail/${mailId}`);
   }
 }

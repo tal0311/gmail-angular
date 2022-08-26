@@ -1,4 +1,5 @@
 export interface Mail {
+  tab: string;
   id: string;
   from: {
     name: string;

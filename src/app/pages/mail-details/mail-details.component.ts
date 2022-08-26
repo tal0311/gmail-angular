@@ -1,15 +1,15 @@
 import { MailService } from './../../services/mail.service';
 import { Mail } from './../../models/mail';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { lastValueFrom, Subscription, switchMap } from 'rxjs';
+import { Subscription, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mail-details',
   templateUrl: './mail-details.component.html',
   styleUrls: ['./mail-details.component.scss'],
 })
-export class MailDetailsComponent implements OnInit {
+export class MailDetailsComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private mailService: MailService
@@ -18,19 +18,19 @@ export class MailDetailsComponent implements OnInit {
   // data
 
   mail!: Mail | any;
+  subscription!: Subscription;
   ngOnInit(): void {
-    // this.route.params.subscribe(async (params) => {
-    //   //test firstValueFrom instead of toPromise
-    //   const mail = await lastValueFrom(this.mailService.getById(params['id']), {
-    //     defaultValue: undefined,
-    //   });
-    //   console.log(mail);
-    //   console.log(mail);
-
-    //   this.mail = mail;
-    // });
-    this.route.data.subscribe(({ mail }) => {
+    this.subscription = this.route.data.subscribe(({ mail }) => {
+      console.log(mail);
       if (mail) this.mail = mail;
     });
+  }
+
+  update(value: string) {
+    console.log('update type:', value);
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 }

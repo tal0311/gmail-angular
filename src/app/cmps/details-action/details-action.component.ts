@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-details-action',
   templateUrl: './details-action.component.html',
   styleUrls: ['./details-action.component.scss'],
 })
-export class DetailsActionComponent implements OnInit {
-  constructor() {}
+export class DetailsActionComponent {
+  constructor(private location: Location) {}
 
+  @Output() updateMail = new EventEmitter();
   // data
   actions = [
     [
@@ -30,15 +32,80 @@ export class DetailsActionComponent implements OnInit {
       },
     ],
     [
-      { icon: 'fa-solid fa-file-export', title: 'Move to', value: 'isUnread' },
+      { icon: 'fa-solid fa-file-export', title: 'Move to', value: 'moveTo' },
       { icon: 'fa-solid fa-tag', title: 'Labels', value: 'labels' },
       { icon: 'fa-solid fa-ellipsis-vertical', title: 'more', value: 'more' },
     ],
   ];
-  ngOnInit(): void {}
+  isModalOpen: boolean = false;
 
   // methods
-  onAction(type: string): void {
+
+  onBack() {
+    this.location.back();
+  }
+  onArchive(type: string) {
+    this.updateMail.emit(type);
+  }
+  onSpam() {
+    console.log('on spam');
+  }
+  onMarkIsRead() {
+    console.log('on isRead');
+  }
+  onRemainder() {
+    console.log('on remainder');
+  }
+  onRemove() {
+    console.log('on remove');
+  }
+  onAddToTask() {
+    console.log('on add task');
+  }
+  onMoveTo() {
+    console.log('on move to');
+  }
+  onLabel() {
+    console.log('on label');
+  }
+  onMore() {
+    this.isModalOpen = !this.isModalOpen;
+    console.log('more options', this.isModalOpen);
+  }
+  onAction(type: string) {
     console.log(type);
+
+    switch (type) {
+      case 'back':
+        this.onBack();
+        return;
+      case 'archive':
+        this.onArchive(type);
+        return;
+      case 'spam':
+        this.onSpam();
+        return;
+      case 'remove':
+        this.onRemove();
+        return;
+      case 'remainder':
+        this.onRemainder();
+        return;
+      case 'isUnread':
+        this.onMarkIsRead();
+        return;
+      case 'addToTask':
+        this.onAddToTask();
+        return;
+      case 'moveTo':
+        this.onMoveTo();
+        return;
+      case 'labels':
+        this.onLabel();
+        return;
+      case 'more':
+        this.onMore();
+        return;
+    }
   }
 }

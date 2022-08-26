@@ -1,15 +1,18 @@
 <section class="details-action">
   <div class="actions-container flex">
-    <div class="btn-set flex" *ngFor="let actionSet of actions">
-      <button
-        class="action flex a-center j-center"
-        *ngFor="let action of actionSet"
-        data-title="{{ action.title }}"
-        (click)="onAction(action.value)"
-      >
-        <i [class]="action.icon"></i>
-      </button>
-      <span class="divider">|</span>
+    <div class="nav-container flex">
+      <div class="btn-set flex" *ngFor="let actionSet of actions">
+        <button
+          class="action flex a-center j-center"
+          *ngFor="let action of actionSet"
+          data-title="{{ action.title }}"
+          (click)="onAction(action.value)"
+        >
+          <i [class]="action.icon"></i>
+          <app-more-options *ngIf="isModalOpen"></app-more-options>
+        </button>
+        <span class="divider">|</span>
+      </div>
     </div>
   </div>
 </section>

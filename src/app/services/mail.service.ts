@@ -15,28 +15,30 @@ export class MailService {
   private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
-  private _filterBy$ = new BehaviorSubject<any>({ term: '' });
+  private _filterBy$ = new BehaviorSubject<any>('inbox');
   public filterBy$ = this._filterBy$.asObservable();
 
   public query() {
-    console.log('ms query');
-    const mailsFromStorage: any | null = this.loadFromStorage(this.key) || null;
-    console.log(mailsFromStorage);
+    // console.log('ms query');
+    // const mailsFromStorage: any | null = this.loadFromStorage(this.key) || null;
+    // console.log(mailsFromStorage);
 
-    if (mailsFromStorage) {
-      this._mailsDb = mailsFromStorage;
-      this._mails$.next(mailsFromStorage);
-      return;
-    }
+    // if (mailsFromStorage) {
+    //   this._mailsDb = mailsFromStorage;
+    //   this._mails$.next(mailsFromStorage);
+    //   return;
+    // }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
       this._mailsDb = mails;
-      this.saveToStorage(this.key, this._mailsDb);
+      const filterBy = this._filterBy$.getValue();
+      console.log(filterBy);
+      // this.saveToStorage(this.key, this._mailsDb);
+      const mailsForDisplay = this._mailsDb.filter(
+        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy
+      );
+      this._mails$.next(mailsForDisplay);
     });
-    // const filterBy = this._filterBy$.getValue();
-
-    // console.log(mails);
-    this._mails$.next(this._mailsDb);
   }
 
   // public shouldAdoptPet() {
@@ -71,10 +73,10 @@ export class MailService {
     return of({ ...mail });
   }
 
-  // public setFilterBy(filterBy: PetFilter) {
-  //   this._filterBy$.next({ ...filterBy });
-  //   this.query();
-  // }
+  public setFilterBy(filterBy: string | null) {
+    this._filterBy$.next(filterBy);
+    this.query();
+  }
 
   // public save(pet: Pet) {
   //   return pet._id ? this._edit(pet) : this._add(pet);

@@ -1,6 +1,7 @@
 [
   {
     "id": "e101",
+    "tab": "inbox",
     "from": { "name": "user-name", "id": "101" },
     "subject": "Miss you!",
     "body": "Would love to catch up sometimes",
@@ -10,6 +11,7 @@
   },
   {
     "id": "e102",
+    "tab": "inbox",
     "from": { "name": "user-name", "id": "102" },
     "subject": "coming soon",
     "body": "latest movies are coming",
@@ -19,6 +21,7 @@
   },
   {
     "id": "e103",
+    "tab": "inbox",
     "from": { "name": "user-name", "id": "103" },
     "subject": "confirm your vacation!",
     "body": "log in to confirm your trip",
@@ -28,6 +31,7 @@
   },
   {
     "id": "e104",
+    "tab": "trash",
     "from": { "name": "tal", "id": "104" },
     "subject": "Miss you!",
     "body": "Would love to catch up sometimes",
@@ -37,6 +41,7 @@
   },
   {
     "id": "e105",
+    "tab": "draft",
     "from": { "name": "user-name", "id": "104" },
     "subject": "security alert!",
     "body": "your account was accessed from another computer",
@@ -46,6 +51,27 @@
   },
   {
     "id": "e106",
+    "tab": "sent",
+    "from": { "name": "user-name", "id": "105" },
+    "subject": "subscribe now!",
+    "body": "subscribe now to get latest adds",
+    "isRead": false,
+    "sentAt": 1551133930594,
+    "to": "nl@subscrib.com"
+  },
+  {
+    "id": "e107",
+    "tab": "starred",
+    "from": { "name": "user-name", "id": "105" },
+    "subject": "subscribe now!",
+    "body": "subscribe now to get latest adds",
+    "isRead": false,
+    "sentAt": 1551133930594,
+    "to": "nl@subscrib.com"
+  },
+  {
+    "id": "e107",
+    "tab": "important",
     "from": { "name": "user-name", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",

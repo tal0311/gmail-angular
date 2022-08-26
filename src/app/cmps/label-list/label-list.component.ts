@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-label-list',
@@ -8,45 +8,44 @@ import { Component, OnInit } from '@angular/core';
 export class LabelListComponent implements OnInit {
   // props
   // emits
+  @Output() setRout = new EventEmitter();
   constructor() {}
   ngOnInit(): void {}
   // data
   labels = [
     {
-      name: 'inbox',
+      name: 'Inbox',
       icon: '',
-      route: 'mail/all',
+      value: 'inbox',
     },
     {
-      name: 'starred',
+      name: 'Starred',
       icon: '',
-      route: 'mail/starred',
+      value: 'starred',
     },
     {
       name: 'Sent',
       icon: '',
-      route: 'mail/sent',
+      value: 'sent',
     },
     {
       name: 'Draft',
       icon: '',
-      route: 'mail/draft',
+      value: 'draft',
     },
     {
       name: 'Important',
       icon: '',
-      route: 'mail/important',
+      value: 'important',
     },
     {
       name: 'Trash',
       icon: '',
-      route: 'mail/trash',
+      value: 'trash',
     },
   ];
 
   // methods
-  setRoute(route: string) {
-    console.log(route);
-  }
+
   // computed
 }
