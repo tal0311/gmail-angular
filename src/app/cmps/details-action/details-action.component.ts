@@ -20,7 +20,7 @@ export class DetailsActionComponent {
         title: 'Move to spam',
         value: 'spam',
       },
-      { icon: 'fa-solid fa-trash-can', title: 'Remove', value: 'remove' },
+      { icon: 'fa-solid fa-trash-can', title: 'Remove', value: 'trash' },
     ],
     [
       { icon: 'fa-solid fa-envelope', title: 'Mark', value: 'isUnread' },

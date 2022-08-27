@@ -32,15 +32,22 @@ export class MailService implements OnInit {
     console.log('ms query');
     const mailsFromStorage: any | null =
       this.utilsService.loadFromStorage(this.key) || null;
-    console.log(mailsFromStorage);
 
     if (mailsFromStorage) {
+      console.log('from local');
+
       this._mailsDb = mailsFromStorage;
-      this._mails$.next(mailsFromStorage);
+      const filterBy = this._filterBy$.getValue();
+
+      const mailsForDisplay = this._mailsDb.filter(
+        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy
+      );
+      this._mails$.next(mailsForDisplay);
       return;
     }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
+      console.log('from json');
       this._mailsDb = mails;
       const filterBy = this._filterBy$.getValue();
 
@@ -112,6 +119,8 @@ export class MailService implements OnInit {
     const idx = mails.findIndex((_mail: Mail) => _mail.id === mail.id);
     mails.splice(idx, 1, mail);
     this._mails$.next(mails);
+    console.log(mails);
+
     this._mailsDb = [...mails];
 
     this.utilsService.saveToStorage(this.key, this._mailsDb);
