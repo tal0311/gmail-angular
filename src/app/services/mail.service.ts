@@ -112,7 +112,9 @@ export class MailService implements OnInit {
     const idx = mails.findIndex((_mail: Mail) => _mail.id === mail.id);
     mails.splice(idx, 1, mail);
     this._mails$.next(mails);
-    this._mailsDb = mails;
+    this._mailsDb = [...mails];
+
+    this.utilsService.saveToStorage(this.key, this._mailsDb);
     this.msgService.setMsg(`Mail moved to tab ${mail.tab}`);
     return of(mail);
   }

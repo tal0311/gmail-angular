@@ -4,5 +4,5 @@
     <router-outlet></router-outlet>
   </section>
   <footer></footer>
-  <app-user-msg></app-user-msg>
+  <app-user-msg *ngIf="msg$ | async as msg" [msg]="msg"></app-user-msg>
 </section>
