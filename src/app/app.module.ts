@@ -2,6 +2,8 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './cmps/app-root/app.component';
@@ -21,11 +23,9 @@ import { ActionsComponent } from './cmps/actions/actions.component';
 import { LogoComponent } from './cmps/logo/logo.component';
 import { UserMsgComponent } from './cmps/user-msg/user-msg.component';
 import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component';
-import { HttpClientModule } from '@angular/common/http';
 import { DetailsActionComponent } from './cmps/details-action/details-action.component';
 import { ResponseActionsComponent } from './cmps/response-actions/response-actions.component';
 import { MoreOptionsComponent } from './cmps/more-options/more-options.component';
-
 @NgModule({
   declarations: [
     AppComponent,

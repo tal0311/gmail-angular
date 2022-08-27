@@ -15,32 +15,32 @@ export class LabelListComponent implements OnInit {
   labels = [
     {
       name: 'Inbox',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/inbox_black_20dp.png',
       value: 'inbox',
     },
     {
       name: 'Starred',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/star_border_black_20dp.png',
       value: 'starred',
     },
     {
       name: 'Sent',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/send_black_20dp.png',
       value: 'sent',
     },
     {
       name: 'Draft',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/insert_drive_file_black_20dp.png',
       value: 'draft',
     },
     {
       name: 'Important',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/label_important_outline_black_20dp.png',
       value: 'important',
     },
     {
       name: 'Trash',
-      icon: '',
+      icon: 'https://www.gstatic.com/images/icons/material/system_gm/1x/delete_black_20dp.png',
       value: 'trash',
     },
   ];

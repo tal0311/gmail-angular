@@ -1,0 +1,11 @@
+.app-search {
+  width: 100%;
+  input[name="search"] {
+    padding: 1em;
+    outline: none;
+    border: none;
+    background-color: #eef3fc;
+    border-radius: 0.5em;
+    width: 60%;
+  }
+}

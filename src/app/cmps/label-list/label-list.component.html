@@ -3,9 +3,14 @@
     ngClass="side-bar-label {{ label.name }}"
     *ngFor="let label of labels"
   >
-    <a [routerLink]="['/mail/all']" [queryParams]="{ tab: label.value }">
-      <span>{{ label.icon }}</span>
-      <span>{{ label.name }}</span>
-    </a>
+    <div class="label-container margin-start flex">
+      <a [routerLink]="['/mail/all']" [queryParams]="{ tab: label.value }">
+        <span style="background-image: url({{ label.icon }})" class="label-img"
+          >&nbsp;&nbsp;&nbsp;
+        </span>
+        <span class="label-name">{{ label.name }}</span>
+      </a>
+      <span class="label-length">14</span>
+    </div>
   </article>
 </section>

@@ -1,5 +1,26 @@
+@import "./../../../assets//styles/variables";
+
 .label-list {
+  padding: 1rem 0;
   .side-bar-label {
-    cursor: pointer;
+    .label-container {
+      background-color: red;
+
+      width: 90%;
+      .label-name {
+        margin-inline-start: 1rem;
+      }
+      padding: 0.2rem 0;
+      cursor: pointer;
+
+      .label-length {
+        margin-right: 0;
+      }
+    }
+    &:hover {
+      background-color: $clr1Hover;
+      border-top-right-radius: 2em;
+      border-bottom-right-radius: 2em;
+    }
   }
 }

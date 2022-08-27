@@ -2,7 +2,9 @@
   <div class="header-content flex a-center">
     <app-logo></app-logo>
     <app-search-input></app-search-input>
-    <app-actions></app-actions>
-    <app-user-preview></app-user-preview>
+    <div class="user-actions-container">
+      <app-actions></app-actions>
+      <app-user-preview [user]="user$ | async"></app-user-preview>
+    </div>
   </div>
 </section>

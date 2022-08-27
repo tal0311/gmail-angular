@@ -3,13 +3,27 @@
   height: 100%;
   width: 100%;
   align-items: center;
+  background-color: #fff;
+  app-logo {
+    width: 20vw;
+  }
+  app-search-input {
+    flex: 1;
+  }
 
+  .user-actions-container {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   .header-content {
     width: 100vw;
     height: 100%;
-    justify-content: space-around;
+    // justify-content: space-around;
 
     > * {
+      border: 1px solid black;
       height: 100%;
       display: flex;
       align-items: center;
