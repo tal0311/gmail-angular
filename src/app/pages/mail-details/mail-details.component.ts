@@ -27,6 +27,9 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
 
   update(value: string) {
     console.log('update type:', value);
+    this.mail.tab = value;
+    console.log('updated mail', this.mail);
+    this.mailService.save(this.mail);
   }
 
   ngOnDestroy(): void {

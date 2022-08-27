@@ -44,29 +44,8 @@ export class DetailsActionComponent {
   onBack() {
     this.location.back();
   }
-  onArchive(type: string) {
+  updateLabel(type: string) {
     this.updateMail.emit(type);
-  }
-  onSpam() {
-    console.log('on spam');
-  }
-  onMarkIsRead() {
-    console.log('on isRead');
-  }
-  onRemainder() {
-    console.log('on remainder');
-  }
-  onRemove() {
-    console.log('on remove');
-  }
-  onAddToTask() {
-    console.log('on add task');
-  }
-  onMoveTo() {
-    console.log('on move to');
-  }
-  onLabel() {
-    console.log('on label');
   }
   onMore() {
     this.isModalOpen = !this.isModalOpen;
@@ -79,32 +58,11 @@ export class DetailsActionComponent {
       case 'back':
         this.onBack();
         return;
-      case 'archive':
-        this.onArchive(type);
-        return;
-      case 'spam':
-        this.onSpam();
-        return;
-      case 'remove':
-        this.onRemove();
-        return;
-      case 'remainder':
-        this.onRemainder();
-        return;
-      case 'isUnread':
-        this.onMarkIsRead();
-        return;
-      case 'addToTask':
-        this.onAddToTask();
-        return;
-      case 'moveTo':
-        this.onMoveTo();
-        return;
-      case 'labels':
-        this.onLabel();
-        return;
       case 'more':
         this.onMore();
+        return;
+      default:
+        this.updateLabel(type);
         return;
     }
   }

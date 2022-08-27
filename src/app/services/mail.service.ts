@@ -1,3 +1,4 @@
+import { UserMsgService } from './user-msg.service';
 import { Mail } from 'src/app/models/mail';
 import { UtilService } from './util.service';
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
@@ -11,7 +12,8 @@ import { HttpClient } from '@angular/common/http';
 export class MailService implements OnInit {
   constructor(
     private httpClient: HttpClient,
-    private utilsService: UtilService
+    private utilsService: UtilService,
+    private msgService: UserMsgService
   ) {}
 
   _mailsDb!: Mail[] | any;
@@ -27,15 +29,16 @@ export class MailService implements OnInit {
   }
 
   public query() {
-    // console.log('ms query');
-    // const mailsFromStorage: any | null = this.loadFromStorage(this.key) || null;
-    // console.log(mailsFromStorage);
+    console.log('ms query');
+    const mailsFromStorage: any | null =
+      this.utilsService.loadFromStorage(this.key) || null;
+    console.log(mailsFromStorage);
 
-    // if (mailsFromStorage) {
-    //   this._mailsDb = mailsFromStorage;
-    //   this._mails$.next(mailsFromStorage);
-    //   return;
-    // }
+    if (mailsFromStorage) {
+      this._mailsDb = mailsFromStorage;
+      this._mails$.next(mailsFromStorage);
+      return;
+    }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
       this._mailsDb = mails;
@@ -100,14 +103,17 @@ export class MailService implements OnInit {
     mail.id = this.utilsService.makeId();
     this._mailsDb.push(mail);
     this._mails$.next(this._mailsDb);
+    this.msgService.setMsg(`Mail sent to: ${mail.to}`);
     return of(mail);
   }
 
   private _edit(mail: Mail) {
-    const pets = this._mailsDb;
-    const petIdx = pets.findIndex((_mail: Mail) => _mail.id === mail.id);
-    pets.splice(petIdx, 1, mail);
-    this._mails$.next(pets);
+    const mails = this._mailsDb;
+    const idx = mails.findIndex((_mail: Mail) => _mail.id === mail.id);
+    mails.splice(idx, 1, mail);
+    this._mails$.next(mails);
+    this._mailsDb = mails;
+    this.msgService.setMsg(`Mail moved to tab ${mail.tab}`);
     return of(mail);
   }
 }
