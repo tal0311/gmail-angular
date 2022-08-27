@@ -1,7 +1,17 @@
+@import "./../../../assets/styles/variables";
 .mail-preview {
-  width: 100%;
-  display: flex;
+  // outline: 1px solid $clr3;
+  background-color: #fff;
+  border-bottom: 1px solid $clr3;
+  padding: 0.25em 1em;
+  width: 97%;
+
+  .from {
+    width: 20%;
+    font-weight: bold;
+  }
   .subject {
+    font-weight: bold;
     flex: 1;
   }
 }
