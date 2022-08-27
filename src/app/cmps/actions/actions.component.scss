@@ -1,0 +1,9 @@
+.app-actions {
+  width: 50%;
+  > * {
+    margin-inline-start: 0.5em;
+  }
+  .menu-icon {
+    font-size: 20px;
+  }
+}
