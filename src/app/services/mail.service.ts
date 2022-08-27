@@ -1,14 +1,14 @@
+import { Mail } from 'src/app/models/mail';
 import { UtilService } from './util.service';
-import { Injectable, OnInit } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { Injectable, OnInit, OnDestroy } from '@angular/core';
+import { BehaviorSubject, Observable, of, reduce } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
-import { Mail } from '../models/mail';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MailService {
+export class MailService implements OnInit {
   constructor(
     private httpClient: HttpClient,
     private utilsService: UtilService
@@ -19,8 +19,12 @@ export class MailService {
   private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
-  private _filterBy$ = new BehaviorSubject<any>('inbox');
+  private _filterBy$ = new BehaviorSubject<string | null>('inbox');
   public filterBy$ = this._filterBy$.asObservable();
+
+  ngOnInit(): void {
+    this.getTabsLength();
+  }
 
   public query() {
     // console.log('ms query');
@@ -44,10 +48,16 @@ export class MailService {
     });
   }
 
-  // public shouldAdoptPet() {
-  //   return this.http
-  //     .get<{ answer: string }>('https://yesno.wtf/api')
-  //     .pipe(map((res) => res.answer));
+  public getTabsLength(): any {
+    const labels = this._mailsDb.reduce((acc: any, curr: any) => {
+      console.log();
+      let { tab } = curr;
+      acc[tab] = acc[tab] ? acc[tab] + 1 : 1;
+      return acc;
+    }, {});
+    return labels;
+  }
+
   // }
 
   public getEmptyPet() {

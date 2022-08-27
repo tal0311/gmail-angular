@@ -1,20 +1,20 @@
 @import "./../../../assets//styles/variables";
 
 .label-list {
-  padding: 1rem 0;
   .side-bar-label {
+    padding: 0.4em 0;
     .label-container {
-      background-color: red;
-
-      width: 90%;
-      .label-name {
-        margin-inline-start: 1rem;
+      .link-container {
+        flex: 1;
       }
-      padding: 0.2rem 0;
-      cursor: pointer;
-
+      .label-img {
+        background-repeat: no-repeat;
+        .label-name {
+          margin-inline-start: 2rem;
+        }
+      }
       .label-length {
-        margin-right: 0;
+        margin-right: 1rem;
       }
     }
     &:hover {

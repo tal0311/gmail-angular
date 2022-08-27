@@ -21,7 +21,6 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
   subscription!: Subscription;
   ngOnInit(): void {
     this.subscription = this.route.data.subscribe(({ mail }) => {
-      console.log(mail);
       if (mail) this.mail = mail;
     });
   }

@@ -1,4 +1,7 @@
+import { Observable, reduce } from 'rxjs';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MailService } from 'src/app/services/mail.service';
+import { Mail } from 'src/app/models/mail';
 
 @Component({
   selector: 'app-label-list',
@@ -9,9 +12,13 @@ export class LabelListComponent implements OnInit {
   // props
   // emits
   @Output() setRout = new EventEmitter();
-  constructor() {}
+
+  constructor(private mailService: MailService) {
+    this.labelsLength = this.mailService.getTabsLength();
+  }
   ngOnInit(): void {}
   // data
+  labelsLength;
   labels = [
     {
       name: 'Inbox',
@@ -46,6 +53,9 @@ export class LabelListComponent implements OnInit {
   ];
 
   // methods
-
+  getLength(labelName: string) {
+    const labels = this.mailService.getTabsLength();
+    return labels[labelName];
+  }
   // computed
 }
