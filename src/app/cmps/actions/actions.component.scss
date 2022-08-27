@@ -1,5 +1,6 @@
+@import "./../../../assets//styles/variables";
 .app-actions {
-  width: 50%;
+  color: $LabelColor;
   > * {
     margin-inline-start: 0.5em;
   }
