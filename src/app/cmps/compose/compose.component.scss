@@ -42,6 +42,8 @@
   }
 
   .mail-body {
+    flex-direction: column;
+    height: 90%;
     .mail-header {
       flex-direction: column;
       padding: 0 0.5em;
@@ -51,6 +53,38 @@
         &:not(:first-child) {
           border-bottom: 1px solid $clr2;
         }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .mail-content {
+      &.flex {
+        flex: 1;
+      }
+    }
+    .mail-content-text {
+      width: 95%;
+      border: none;
+      margin: 1em auto;
+      resize: none;
+      // background-color: lightgray;
+      font-size: 1.2em;
+      color: black;
+      font-style: normal;
+
+      &:focus {
+        outline: none;
+      }
+    }
+    .bottom-panel {
+      padding-inline-start: 0.5em;
+      .send-btn {
+        border-radius: 18px;
+        padding: 0.8em 2em;
+        background-color: #0b57d0;
+        color: #fff;
       }
     }
   }

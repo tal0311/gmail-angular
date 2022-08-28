@@ -1,5 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Form, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-compose',
@@ -12,6 +13,12 @@ export class ComposeComponent implements OnInit {
   isExpand = false;
   isMini = false;
 
+  mail = {
+    to: '',
+    subject: '',
+    content: '',
+  };
+
   ngOnInit(): void {}
 
   onMinimize() {
@@ -22,5 +29,17 @@ export class ComposeComponent implements OnInit {
   }
   onExpand() {
     this.isExpand = !this.isExpand;
+  }
+  sendMail() {
+    if (!this.mail.to) {
+      alert('Can not sent mail with no destination');
+      return;
+    }
+    if (!this.mail.subject) {
+      if (confirm('Subject field empty')) {
+        console.log(this.mail);
+      }
+    }
+    console.log(this.mail);
   }
 }

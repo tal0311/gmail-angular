@@ -21,11 +21,31 @@
     </div>
   </section>
   <!-- end of top bar -->
-  <section class="mail-body">
+  <section class="mail-body flex">
     <section class="mail-header flex">
-      <input type="text" placeholder="From: TalAmit@gmail.com" />
-      <input type="text" placeholder="To" />
-      <input type="text" placeholder="Subject" />
+      <input type="text" placeholder="From: talamit@gmail.com" />
+      <input type="text" placeholder="To" [(ngModel)]="mail.to" name="to" />
+      <input
+        type="text"
+        placeholder="Subject"
+        [(ngModel)]="mail.subject"
+        name="subject"
+      />
+    </section>
+    <section class="mail-content flex j-center">
+      <textarea
+        class="mail-content-text"
+        name="content"
+        [(ngModel)]="mail.content"
+      ></textarea>
+    </section>
+    <section class="bottom-panel">
+      <!-- <section>quill panel</section> -->
+      <section class="submit-panel">
+        <button class="send-btn" type="submit" (click)="sendMail()">
+          Send
+        </button>
+      </section>
     </section>
   </section>
 </section>
