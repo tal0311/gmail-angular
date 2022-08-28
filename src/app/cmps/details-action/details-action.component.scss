@@ -15,6 +15,7 @@
   }
 
   .action {
+    margin: 0 0.5em;
     transition: 0.2s ease;
     background: none;
     border: none;
@@ -27,7 +28,8 @@
         transition: 0.2s ease;
       }
     }
-    .fa-solid {
+    .fa-solid,
+    img {
       text-align: center;
       transition: all ease-in-out 0.2s;
       color: #555;

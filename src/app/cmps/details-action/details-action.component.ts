@@ -13,28 +13,60 @@ export class DetailsActionComponent {
   // data
   actions = [
     [
-      { icon: 'fa-solid fa-arrow-left', title: 'Back', value: 'back' },
-      { icon: 'fa-solid fa-box-archive', title: 'Archive', value: 'archive' },
       {
-        icon: 'fa-solid fa-circle-exclamation',
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/arrow_back/default/20px.svg',
+        title: 'Back',
+        value: 'back',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/archive/default/20px.svg',
+        title: 'Archive',
+        value: 'archive',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/report/default/20px.svg',
         title: 'Move to spam',
         value: 'spam',
       },
-      { icon: 'fa-solid fa-trash-can', title: 'Remove', value: 'trash' },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/delete/default/20px.svg',
+        title: 'Remove',
+        value: 'trash',
+      },
     ],
     [
-      { icon: 'fa-solid fa-envelope', title: 'Mark', value: 'isUnread' },
-      { icon: 'fa-solid fa-clock', title: 'Remainder', value: 'remainder' },
       {
-        icon: 'fa-solid fa-circle-check',
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/mail/default/20px.svg',
+        title: 'Mark unread',
+        value: 'isUnread',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/schedule/default/20px.svg',
+        title: 'Remainder',
+        value: 'remainder',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/add_task/default/20px.svg',
         title: 'Add Task',
         value: 'addToTask',
       },
     ],
     [
-      { icon: 'fa-solid fa-file-export', title: 'Move to', value: 'moveTo' },
-      { icon: 'fa-solid fa-tag', title: 'Labels', value: 'labels' },
-      { icon: 'fa-solid fa-ellipsis-vertical', title: 'more', value: 'more' },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/drive_file_move/default/20px.svg',
+        title: 'Move to',
+        value: 'moveTo',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/label/default/20px.svg',
+        title: 'Labels',
+        value: 'labels',
+      },
+      {
+        icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/more_vert/default/20px.svg',
+        title: 'more',
+        value: 'more',
+      },
     ],
   ];
   isModalOpen: boolean = false;
