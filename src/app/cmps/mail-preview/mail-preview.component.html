@@ -1,6 +1,9 @@
-<section class="mail-preview flex" (click)="navigateTo(mail.id)">
+<section
+  class="mail-preview flex a-center j-center"
+  (click)="navigateTo(mail.id)"
+>
   <!-- <app-user-preview [user]="mail.from"></app-user-preview> -->
   <p class="from">{{ mail.from.name }}</p>
   <p class="subject">{{ mail.subject }}</p>
-  <p class="date">{{ mail.sentAt | date }}</p>
+  <small class="date">{{ mail.sentAt | date }}</small>
 </section>
