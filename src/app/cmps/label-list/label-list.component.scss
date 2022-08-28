@@ -2,7 +2,7 @@
 
 .label-list {
   .active {
-    background-color: $clr1Hover;
+    background-color: $LabelHover;
     border-top-right-radius: 2em;
     border-bottom-right-radius: 2em;
   }
@@ -23,7 +23,7 @@
       }
     }
     &:hover {
-      background-color: $clr1Hover;
+      background-color: $LabelHover;
       border-top-right-radius: 2em;
       border-bottom-right-radius: 2em;
     }

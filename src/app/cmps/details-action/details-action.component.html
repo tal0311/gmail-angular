@@ -9,7 +9,9 @@
           (click)="onAction(action.value)"
         >
           <i [class]="action.icon"></i>
-          <app-more-options *ngIf="isModalOpen"></app-more-options>
+          <section class="more-actions" *ngIf="action.value === 'more'">
+            <app-more-options *ngIf="isModalOpen"></app-more-options>
+          </section>
         </button>
         <span class="divider">|</span>
       </div>

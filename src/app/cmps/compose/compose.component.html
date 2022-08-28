@@ -1,3 +1,31 @@
-<section class="mail-compose">
-  <h3>add new mail</h3>
+<section
+  [ngClass]="{ minimize: isMini, 'mail-compose': true, expand: isExpand }"
+>
+  <section class="top-bar">
+    <div class="actions-container flex">
+      <button
+        (click)="onMinimize()"
+        title="Minimize"
+        class="fa-solid fa-window-minimize"
+      ></button>
+      <button
+        (click)="onExpand()"
+        title="Expand"
+        class="fa-solid fa-up-right-and-down-left-from-center"
+      ></button>
+      <button
+        (click)="onCloseModal()"
+        title="Close"
+        class="fa-solid fa-xmark"
+      ></button>
+    </div>
+  </section>
+  <!-- end of top bar -->
+  <section class="mail-body">
+    <section class="mail-header flex">
+      <input type="text" placeholder="From: TalAmit@gmail.com" />
+      <input type="text" placeholder="To" />
+      <input type="text" placeholder="Subject" />
+    </section>
+  </section>
 </section>

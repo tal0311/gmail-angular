@@ -2,7 +2,27 @@
   {
     "id": "e101",
     "tab": "inbox",
-    "from": { "name": "user-name", "id": "101" },
+    "from": { "name": "Alon dai", "id": "101" },
+    "subject": "Miss you!",
+    "body": "Would love to catch up sometimes",
+    "isRead": false,
+    "sentAt": 1551133930594,
+    "to": "momo@momo.com"
+  },
+  {
+    "id": "e301",
+    "tab": "inbox",
+    "from": { "name": "Yaron biton", "id": "101" },
+    "subject": "Miss you!",
+    "body": "Would love to catch up sometimes",
+    "isRead": false,
+    "sentAt": 1551133930594,
+    "to": "momo@momo.com"
+  },
+  {
+    "id": "e201",
+    "tab": "inbox",
+    "from": { "name": "Matan crispil", "id": "101" },
     "subject": "Miss you!",
     "body": "Would love to catch up sometimes",
     "isRead": false,
@@ -12,7 +32,7 @@
   {
     "id": "e102",
     "tab": "inbox",
-    "from": { "name": "user-name", "id": "102" },
+    "from": { "name": "Rotem bublil", "id": "102" },
     "subject": "coming soon",
     "body": "latest movies are coming",
     "isRead": false,
@@ -22,7 +42,7 @@
   {
     "id": "e103",
     "tab": "inbox",
-    "from": { "name": "user-name", "id": "103" },
+    "from": { "name": "Sapir Hiki", "id": "103" },
     "subject": "confirm your vacation!",
     "body": "log in to confirm your trip",
     "isRead": false,
@@ -32,7 +52,7 @@
   {
     "id": "e104",
     "tab": "trash",
-    "from": { "name": "tal", "id": "104" },
+    "from": { "name": "Tal Amit", "id": "104" },
     "subject": "Miss you!",
     "body": "Would love to catch up sometimes",
     "isRead": false,
@@ -42,7 +62,7 @@
   {
     "id": "e105",
     "tab": "draft",
-    "from": { "name": "user-name", "id": "104" },
+    "from": { "name": "Amir Inbar", "id": "104" },
     "subject": "security alert!",
     "body": "your account was accessed from another computer",
     "isRead": false,
@@ -52,7 +72,7 @@
   {
     "id": "e106",
     "tab": "sent",
-    "from": { "name": "user-name", "id": "105" },
+    "from": { "name": "Assaf Margalit", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
     "isRead": false,
@@ -62,7 +82,7 @@
   {
     "id": "e107",
     "tab": "starred",
-    "from": { "name": "user-name", "id": "105" },
+    "from": { "name": "Dor Amit", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
     "isRead": false,
@@ -72,7 +92,7 @@
   {
     "id": "e107",
     "tab": "important",
-    "from": { "name": "user-name", "id": "105" },
+    "from": { "name": "Adam Berko", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
     "isRead": false,
@@ -82,7 +102,7 @@
   {
     "id": "e108",
     "tab": "sent",
-    "from": { "name": "user-name", "id": "105" },
+    "from": { "name": "Shani Aharon", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
     "isRead": false,

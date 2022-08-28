@@ -1,12 +1,57 @@
+@import "./../../../assets/styles/variables";
 .mail-compose {
+  transition: all 0.3s ease-in-out;
   position: fixed;
   bottom: 0;
   background-color: #fff;
-  height: 40%;
-  width: 35%;
-  right: 15rem;
+  height: 50%;
+  width: 40%;
+  right: 1rem;
+  box-shadow: $shadow;
+  border-top-left-radius: $b-radius;
+  border-top-right-radius: $b-radius;
 
+  .top-bar {
+    border-radius: inherit;
+    background-color: $clr5;
+
+    .actions-container {
+      justify-content: flex-end;
+      height: 1.5rem;
+      padding-inline-end: 0.2em;
+    }
+  }
   &.minimize {
     height: 5%;
+    .top-bar {
+      height: 2.5rem;
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }
+  &.expand {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 85%;
+    height: 80%;
+    transform: translate(-50%, -50%);
+  }
+
+  .mail-body {
+    .mail-header {
+      flex-direction: column;
+      padding: 0 0.5em;
+      input {
+        border: none;
+        padding: 0.5em 0;
+        &:not(:first-child) {
+          border-bottom: 1px solid $clr2;
+        }
+      }
+    }
   }
 }

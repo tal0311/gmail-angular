@@ -8,5 +8,15 @@ import { Component, OnInit } from '@angular/core';
 export class ComposeComponent implements OnInit {
   constructor() {}
 
+  isExpand = false;
+  isMini = false;
   ngOnInit(): void {}
+
+  onMinimize() {
+    this.isMini = !this.isMini;
+  }
+  onCloseModal() {}
+  onExpand() {
+    this.isExpand = !this.isExpand;
+  }
 }

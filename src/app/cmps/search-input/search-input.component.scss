@@ -1,10 +1,11 @@
+@import "./../../../assets/styles/variables";
 .app-search {
   width: 100%;
   input[name="search"] {
     padding: 1em;
     outline: none;
     border: none;
-    background-color: #eef3fc;
+    background-color: $clr5;
     border-radius: 0.5em;
     width: 60%;
   }
