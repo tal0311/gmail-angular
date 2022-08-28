@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,16 +7,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./compose.component.scss'],
 })
 export class ComposeComponent implements OnInit {
-  constructor() {}
+  constructor(private location: Location) {}
 
   isExpand = false;
   isMini = false;
+
   ngOnInit(): void {}
 
   onMinimize() {
     this.isMini = !this.isMini;
   }
-  onCloseModal() {}
+  onCloseModal() {
+    this.location.back();
+  }
   onExpand() {
     this.isExpand = !this.isExpand;
   }

@@ -18,6 +18,8 @@ export class LabelListComponent implements OnInit {
   }
   ngOnInit(): void {}
   // data
+  composeUrl =
+    'https://www.gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png';
   labelsLength;
   labels = [
     {

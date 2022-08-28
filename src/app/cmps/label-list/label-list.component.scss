@@ -1,6 +1,23 @@
 @import "./../../../assets//styles/variables";
 
 .label-list {
+  .compose {
+    padding: 5em;
+    background-color: #c2e7ff;
+    width: 10em;
+    padding: 1em;
+    border-radius: 1em;
+    margin-inline-start: 1em;
+    margin-bottom: 1em;
+    .btn-title {
+      img {
+        margin-inline-end: 1em;
+      }
+    }
+    &:hover {
+      box-shadow: $shadow;
+    }
+  }
   .active {
     background-color: $LabelHover;
     border-top-right-radius: 2em;

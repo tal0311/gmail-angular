@@ -1,4 +1,13 @@
 <section class="label-list">
+  <button
+    class="compose"
+    [routerLink]="['all/compose']"
+    [queryParams]="{ tab: 'inbox' }"
+  >
+    <span class="btn-title flex a-center"
+      ><img [src]="composeUrl" alt="" />Compose</span
+    >
+  </button>
   <article
     class="side-bar-label"
     *ngFor="let label of labels"
