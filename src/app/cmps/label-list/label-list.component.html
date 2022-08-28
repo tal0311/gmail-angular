@@ -1,12 +1,14 @@
 <section class="label-list">
-  <article class="side-bar-label" *ngFor="let label of labels">
+  <article
+    class="side-bar-label"
+    *ngFor="let label of labels"
+    [routerLink]="['/mail/all']"
+    [queryParams]="{ tab: label.value }"
+    routerLinkActive="active"
+  >
     <div class="label-container flex margin-start">
       <!-- link wrapper -->
-      <a
-        class="link-container"
-        [routerLink]="['/mail/all']"
-        [queryParams]="{ tab: label.value }"
-      >
+      <a class="link-container">
         <p style="background-image: url({{ label.icon }})" class="label-img">
           <span class="label-name">{{ label.name }}</span>
         </p>

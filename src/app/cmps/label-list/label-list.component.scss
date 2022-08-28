@@ -1,6 +1,11 @@
 @import "./../../../assets//styles/variables";
 
 .label-list {
+  .active {
+    background-color: $clr1Hover;
+    border-top-right-radius: 2em;
+    border-bottom-right-radius: 2em;
+  }
   .side-bar-label {
     padding: 0.4em 0;
     .label-container {
