@@ -4,4 +4,8 @@
   width: 20vw;
   height: 100%;
   background-color: $clr1;
+
+  &.isCollapsed {
+    width: 4em;
+  }
 }

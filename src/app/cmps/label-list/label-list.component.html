@@ -1,4 +1,4 @@
-<section class="label-list">
+<section [class]="{ 'label-list': true, isCollapsed: isCollapsed }">
   <button
     class="compose"
     [routerLink]="['all/compose']"
@@ -18,11 +18,10 @@
   >
     <div class="label-container flex margin-start">
       <!-- link wrapper -->
-      <a class="link-container">
-        <p style="background-image: url({{ label.icon }})" class="label-img">
-          <span class="label-name">{{ label.name }}</span>
-        </p>
-      </a>
+      <section class="link-container flex a-center">
+        <img [src]="label.icon" class="label-img" />
+        <span class="label-name">{{ label.name }}</span>
+      </section>
       <p class="label-length">{{ getLength(label.value) }}</p>
     </div>
   </article>

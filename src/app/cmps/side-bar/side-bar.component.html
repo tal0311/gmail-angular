@@ -1,3 +1,6 @@
-<section class="side-bar">
-  <app-label-list (setRout)="updateFilter($event)"></app-label-list>
+<section [class]="{ 'side-bar': true, isCollapsed: isCollapsed }">
+  <app-label-list
+    (setRout)="updateFilter($event)"
+    [isCollapsed]="isCollapsed"
+  ></app-label-list>
 </section>

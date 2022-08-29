@@ -24,6 +24,9 @@ export class MailService implements OnInit {
   private _filterBy$ = new BehaviorSubject<string | null>('inbox');
   public filterBy$ = this._filterBy$.asObservable();
 
+  private _isCollapsed$ = new BehaviorSubject<boolean>(false);
+  public isCollapsed$ = this._isCollapsed$.asObservable();
+
   ngOnInit(): void {
     this.getTabsLength();
   }
@@ -126,5 +129,11 @@ export class MailService implements OnInit {
     this.utilsService.saveToStorage(this.key, this._mailsDb);
     this.msgService.setMsg(`Mail moved to tab ${mail.tab}`);
     return of(mail);
+  }
+
+  setIsCollapsed() {
+    let value = this._isCollapsed$.getValue();
+    value = !value;
+    this._isCollapsed$.next(value);
   }
 }

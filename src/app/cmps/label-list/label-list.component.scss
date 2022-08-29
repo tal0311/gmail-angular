@@ -7,7 +7,7 @@
     width: 10em;
     padding: 1em;
     border-radius: 1em;
-    margin-inline-start: 1em;
+    margin-inline-start: 0.3em;
     margin-bottom: 1em;
     .btn-title {
       img {
@@ -17,12 +17,6 @@
     &:hover {
       box-shadow: $shadow;
     }
-    &.isCollapsed {
-      width: 4em;
-      .title {
-        display: none;
-      }
-    }
   }
   .active {
     background-color: $LabelHover;
@@ -31,12 +25,12 @@
   }
   .side-bar-label {
     padding: 0.4em 0;
+    cursor: pointer;
     .label-container {
       .link-container {
         flex: 1;
       }
       .label-img {
-        background-repeat: no-repeat;
         .label-name {
           margin-inline-start: 2rem;
         }
@@ -49,6 +43,17 @@
       background-color: $LabelHover;
       border-top-right-radius: 2em;
       border-bottom-right-radius: 2em;
+    }
+  }
+  &.isCollapsed {
+    width: 3em;
+    .title,
+    .label-name,
+    .label-length {
+      display: none;
+    }
+    .compose {
+      width: inherit;
     }
   }
 }
