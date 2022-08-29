@@ -17,6 +17,12 @@
     &:hover {
       box-shadow: $shadow;
     }
+    &.isCollapsed {
+      width: 4em;
+      .title {
+        display: none;
+      }
+    }
   }
   .active {
     background-color: $LabelHover;
