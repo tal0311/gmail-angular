@@ -9,15 +9,17 @@
     .from-container {
       justify-content: space-between;
       .from-actions {
-        .action {
-          background: none;
-          border: none;
-          margin-inline: 0.2em;
-          height: 1.5rem;
-          width: 1.5rem;
-          border-radius: 50%;
-          &:hover {
-            background-color: $clr1Hover;
+        .actions-container {
+          .action {
+            background: none;
+            border: none;
+            margin-inline: 0.2em;
+            height: 1.5rem;
+            width: 1.5rem;
+            border-radius: 50%;
+            &:hover {
+              background-color: $clr1Hover;
+            }
           }
         }
         .fa-solid {

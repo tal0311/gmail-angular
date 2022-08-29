@@ -4,16 +4,19 @@
     <h1 class="mail-subject">{{ mail.subject || "no subject" }}</h1>
     <section class="from-container flex a-center">
       <app-user-preview [user]="mail.from"></app-user-preview>
-      <div class="from-actions flex">
+      <section class="from-actions flex a-center">
         <time>{{ mail.sentAt | date }}</time>
-        <button class="action flex a-center j-center">
-          <i class="fa-solid fa-reply"></i>
-        </button>
-        <button class="action"><i class="fa-solid fa-star"></i></button>
-        <button class="action">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </button>
-      </div>
+        <section class="actions-container flex">
+          <button
+            class="action flex j-center a-center"
+            *ngFor="let btn of buttons"
+            (click)="onAction(btn.value)"
+            [title]="btn.title"
+          >
+            <img [src]="btn.link" [alt]="btn.title" />
+          </button>
+        </section>
+      </section>
     </section>
     <p class="mail-body">{{ mail.body }}</p>
     <app-response-actions></app-response-actions>
