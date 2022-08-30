@@ -1,6 +1,7 @@
 @import "./../../../assets/styles/variables";
 .app-search {
   width: 100%;
+  position: relative;
   input[name="search"] {
     padding: 1em 0 1em 3em;
     outline: none;
@@ -11,8 +12,7 @@
   }
 
   .search-icon {
-    position: relative;
-    right: -2em;
-    bottom: -0.2em;
+    position: absolute;
+    left: 0.5em;
   }
 }
