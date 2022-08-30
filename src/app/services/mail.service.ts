@@ -39,32 +39,16 @@ export class MailService implements OnInit {
     console.log('ms query');
     const mailsFromStorage: any | null =
       this.utilsService.loadFromStorage(this.key) || null;
-
     if (mailsFromStorage) {
-      console.log('from local');
-
       this._mailsDb = mailsFromStorage;
-      const filterBy = this._filterBy$.getValue();
-      console.log('query filter:', filterBy);
-      const mailsForDisplay = this._mailsDb.filter(
-        (mailForDisplay: Mail) =>
-          mailForDisplay.tab === filterBy?.tab &&
-          mailForDisplay.from.name.toLowerCase().includes(filterBy?.term || '')
-      );
-      console.log(mailsForDisplay);
-
+      const mailsForDisplay = this._mailsDb.filter(this._buildFilter);
       this._mails$.next(mailsForDisplay);
       return;
     }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
       this._mailsDb = mails;
-      const filterBy = this._filterBy$.getValue();
-      console.log('query filter:', filterBy);
-
-      const mailsForDisplay = this._mailsDb.filter(
-        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy?.tab
-      );
+      const mailsForDisplay = this._mailsDb.filter(this._buildFilter);
       this._mails$.next(mailsForDisplay);
     });
   }
@@ -109,7 +93,6 @@ export class MailService implements OnInit {
   }
 
   public setFilterBy(filterBy: Search | null) {
-    console.log(filterBy);
     this._filterBy$.next(filterBy);
     this.query();
   }
@@ -140,6 +123,13 @@ export class MailService implements OnInit {
     return of(mail);
   }
 
+  private _buildFilter = (mail: Mail) => {
+    const filterBy = this._filterBy$.getValue();
+    return (
+      mail.tab === filterBy?.tab &&
+      mail.from.name.toLowerCase().includes(filterBy?.term || '')
+    );
+  };
   setIsCollapsed() {
     let value = this._isCollapsed$.getValue();
     value = !value;
