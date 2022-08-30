@@ -19,8 +19,10 @@ export class MailListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription = this.route.queryParams.subscribe(({ tab }) => {
+      console.log(tab);
+
       this.currTab = tab;
-      this.mailService.setFilterBy(this.currTab);
+      this.mailService.setFilterBy({ tab, term: '' });
     });
   }
 

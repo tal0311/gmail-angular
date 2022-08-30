@@ -5,6 +5,7 @@ import { Injectable, OnInit, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, of, reduce } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
+import { Search } from '../models/search';
 
 @Injectable({
   providedIn: 'root',
@@ -21,7 +22,10 @@ export class MailService implements OnInit {
   private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
-  private _filterBy$ = new BehaviorSubject<string | null>('inbox');
+  private _filterBy$ = new BehaviorSubject<Search | null>({
+    tab: 'inbox',
+    term: '',
+  });
   public filterBy$ = this._filterBy$.asObservable();
 
   private _isCollapsed$ = new BehaviorSubject<boolean>(false);
@@ -41,21 +45,25 @@ export class MailService implements OnInit {
 
       this._mailsDb = mailsFromStorage;
       const filterBy = this._filterBy$.getValue();
-
+      console.log('query filter:', filterBy);
       const mailsForDisplay = this._mailsDb.filter(
-        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy
+        (mailForDisplay: Mail) =>
+          mailForDisplay.tab === filterBy?.tab &&
+          mailForDisplay.from.name.toLowerCase().includes(filterBy?.term || '')
       );
+      console.log(mailsForDisplay);
+
       this._mails$.next(mailsForDisplay);
       return;
     }
 
     this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
-      console.log('from json');
       this._mailsDb = mails;
       const filterBy = this._filterBy$.getValue();
+      console.log('query filter:', filterBy);
 
       const mailsForDisplay = this._mailsDb.filter(
-        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy
+        (mailForDisplay: Mail) => mailForDisplay.tab === filterBy?.tab
       );
       this._mails$.next(mailsForDisplay);
     });
@@ -100,7 +108,8 @@ export class MailService implements OnInit {
     return of({ ...mail });
   }
 
-  public setFilterBy(filterBy: string | null) {
+  public setFilterBy(filterBy: Search | null) {
+    console.log(filterBy);
     this._filterBy$.next(filterBy);
     this.query();
   }

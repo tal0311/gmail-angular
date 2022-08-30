@@ -2,11 +2,17 @@
 .app-search {
   width: 100%;
   input[name="search"] {
-    padding: 1em;
+    padding: 1em 0 1em 3em;
     outline: none;
     border: none;
     background-color: $clr5;
     border-radius: 0.5em;
     width: 60%;
+  }
+
+  .search-icon {
+    position: relative;
+    right: -2em;
+    bottom: -0.2em;
   }
 }
