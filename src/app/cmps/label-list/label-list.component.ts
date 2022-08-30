@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  OnDestroy,
+} from '@angular/core';
 import { MailService } from 'src/app/services/mail.service';
 
 @Component({
@@ -15,9 +22,7 @@ export class LabelListComponent implements OnInit {
   constructor(private mailService: MailService) {
     this.labelsLength = this.mailService.getTabsLength();
   }
-  ngOnInit(): void {
-    console.log(this.isCollapsed);
-  }
+  ngOnInit(): void {}
   // data
   composeUrl =
     'https://www.gstatic.com/images/icons/material/system_gm/1x/create_black_24dp.png';
@@ -60,5 +65,6 @@ export class LabelListComponent implements OnInit {
     const labels = this.mailService.getTabsLength();
     return labels[labelName];
   }
+
   // computed
 }

@@ -1,7 +1,8 @@
 <section
   [ngClass]="{ minimize: isMini, 'mail-compose': true, expand: isExpand }"
 >
-  <section class="top-bar">
+  <section class="top-bar flex a-center">
+    <span class="bar-name">New message</span>
     <div class="actions-container flex">
       <button
         (click)="onMinimize()"

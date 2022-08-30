@@ -12,9 +12,15 @@
   border-top-right-radius: $b-radius;
 
   .top-bar {
+    padding: 0.5em 0;
+    justify-content: space-between;
     border-radius: inherit;
     background-color: $clr5;
 
+    .bar-name {
+      font-weight: bold;
+      margin-inline-start: 1em;
+    }
     .actions-container {
       justify-content: flex-end;
       height: 1.5rem;
@@ -23,13 +29,12 @@
   }
   &.minimize {
     height: 5%;
-    .top-bar {
-      height: 2.5rem;
-      color: #fff;
 
+    .top-bar {
       display: flex;
       align-items: center;
       justify-content: flex-end;
+      justify-content: space-between;
     }
   }
   &.expand {
@@ -43,7 +48,7 @@
 
   .mail-body {
     flex-direction: column;
-    height: 90%;
+    height: 85%;
     .mail-header {
       flex-direction: column;
       padding: 0 0.5em;
