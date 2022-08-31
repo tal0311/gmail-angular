@@ -1,6 +1,5 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-compose',
@@ -10,8 +9,8 @@ import { Form, FormControl, FormGroup } from '@angular/forms';
 export class ComposeComponent implements OnInit {
   constructor(private location: Location) {}
 
-  isExpand = false;
-  isMini = false;
+  isExpand: boolean = false;
+  isMini: boolean = false;
 
   mail = {
     to: '',
@@ -38,6 +37,8 @@ export class ComposeComponent implements OnInit {
     if (!this.mail.subject) {
       if (confirm('Subject field empty')) {
         console.log(this.mail);
+      } else {
+        return;
       }
     }
     console.log(this.mail);

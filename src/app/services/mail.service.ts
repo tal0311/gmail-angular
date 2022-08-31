@@ -103,9 +103,12 @@ export class MailService implements OnInit {
   }
   private _add(mail: Mail) {
     mail.id = this.utilsService.makeId();
+    mail.sentAt = Date.now();
+    mail.tab = 'sent';
     this._mailsDb.push(mail);
     this._mails$.next(this._mailsDb);
     this.msgService.setMsg(`Mail sent to: ${mail.to}`);
+    this.utilsService.saveToStorage(this.key, this._mailsDb);
     return of(mail);
   }
 
