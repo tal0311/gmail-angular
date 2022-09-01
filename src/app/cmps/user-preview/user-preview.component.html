@@ -1,6 +1,12 @@
 <section *ngIf="user" class="user-preview flex a-center j-center">
   <div>
-    <img *ngIf="user.imgUrl" [src]="user.imgUrl" alt="" />
-    <!-- <p>{{ user.name.substring(0, 1) }}</p> -->
+    <img *ngIf="user.imgUrl; else firstLetter" [src]="user.imgUrl" alt="" />
   </div>
 </section>
+<ng-template #firstLetter>
+  <section class="user-preview flex a-center j-center isImg">
+    <div class="letter-container">
+      <span class="letter">{{ user.name[0] }}</span>
+    </div>
+  </section>
+</ng-template>
