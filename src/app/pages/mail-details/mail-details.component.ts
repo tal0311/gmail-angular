@@ -48,8 +48,23 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
     this.mailService.save(this.mail);
   }
 
+  replay(id: string) {
+    this.mailService.replay(id);
+  }
+
   onAction(value: string) {
     console.log(value);
+    switch (value) {
+      case 'star':
+        this.update('starred');
+        break;
+      case 'replay':
+        this.replay(this.mail.id);
+        break;
+
+      default:
+        break;
+    }
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();

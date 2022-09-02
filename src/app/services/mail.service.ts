@@ -101,6 +101,10 @@ export class MailService implements OnInit {
     return mail.id ? this._edit(mail) : this._add(mail);
     // }
   }
+
+  public replay(mailId: string) {
+    console.log('replay to mail with id', mailId);
+  }
   private _add(mail: Mail) {
     mail.id = this.utilsService.makeId();
     mail.sentAt = Date.now();
