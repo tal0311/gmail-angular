@@ -20,6 +20,9 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  action(action: string) {
+    console.log('action is', action);
+  }
   toggleMenu() {
     this.mailService.setIsCollapsed();
   }

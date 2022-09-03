@@ -25,6 +25,7 @@ import { MailPreviewComponent } from './cmps/mail-preview/mail-preview.component
 import { DetailsActionComponent } from './cmps/details-action/details-action.component';
 import { ResponseActionsComponent } from './cmps/response-actions/response-actions.component';
 import { MoreOptionsComponent } from './cmps/more-options/more-options.component';
+import { SvgComponent } from './cmps/svg/svg.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +48,7 @@ import { MoreOptionsComponent } from './cmps/more-options/more-options.component
     DetailsActionComponent,
     ResponseActionsComponent,
     MoreOptionsComponent,
+    SvgComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
