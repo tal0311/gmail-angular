@@ -1,5 +1,11 @@
 <section
-  class="mail-preview flex a-center j-center"
+  [class]="{
+    'mail-preview': true,
+    flex: true,
+    'a-center': true,
+    'j-center': true,
+    'is-read': mail.isREad
+  }"
   (click)="navigateTo(mail.id)"
 >
   <!-- <app-user-preview [user]="mail.from"></app-user-preview> -->

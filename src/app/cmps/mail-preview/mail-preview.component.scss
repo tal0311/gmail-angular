@@ -7,11 +7,17 @@
   padding: 0.25em 1em;
   width: 98%;
 
-  .date,
-  .from,
-  .subject {
+  & > * {
     font-weight: bold;
   }
+
+  &.is-read {
+    font-weight: normal;
+    & > * {
+      font-weight: bold;
+    }
+  }
+
   .from {
     width: 20%;
   }
