@@ -26,6 +26,11 @@ export class MailListComponent implements OnInit, OnDestroy {
     });
   }
 
+  update(mailId: string) {
+    console.log(mailId);
+
+    this.mailService.setIsReadStatus(mailId);
+  }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

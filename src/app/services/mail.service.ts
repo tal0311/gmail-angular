@@ -97,6 +97,16 @@ export class MailService implements OnInit {
     this.query();
   }
 
+  public setIsReadStatus(mailId: string) {
+    const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
+    mail.isRead = !mail.isRead;
+    console.log(mail);
+
+    this._mails$.next(this._mailsDb);
+    this.utilsService.saveToStorage(this.key, this._mailsDb);
+    this.msgService.setMsg(`Mail read status has been changed`);
+    this.utilsService.saveToStorage(this.key, this._mailsDb);
+  }
   public save(mail: Mail) {
     return mail.id ? this._edit(mail) : this._add(mail);
     // }
@@ -122,9 +132,7 @@ export class MailService implements OnInit {
     mails.splice(idx, 1, mail);
     this._mails$.next(mails);
     console.log(mails);
-
     this._mailsDb = [...mails];
-
     this.utilsService.saveToStorage(this.key, this._mailsDb);
     this.msgService.setMsg(`Mail moved to tab ${mail.tab}`);
     return of(mail);

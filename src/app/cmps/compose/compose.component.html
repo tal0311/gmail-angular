@@ -25,7 +25,14 @@
   <section class="mail-body flex">
     <section class="mail-header flex">
       <input type="text" placeholder="From: talamit@gmail.com" />
-      <input type="text" placeholder="To" [(ngModel)]="mail.to" name="to" />
+      <input
+        type="text"
+        placeholder="To"
+        [(ngModel)]="mail.to"
+        name="to"
+        required
+        pattern="gmailPattern"
+      />
       <input
         type="text"
         placeholder="Subject"

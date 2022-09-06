@@ -4,11 +4,10 @@
     flex: true,
     'a-center': true,
     'j-center': true,
-    'is-read': mail.isREad
+    'is-read': mail.isRead
   }"
   (click)="navigateTo(mail.id)"
 >
-  <!-- <app-user-preview [user]="mail.from"></app-user-preview> -->
   <p class="from">{{ mail.from.name }}</p>
   <p class="subject">{{ mail.subject }}</p>
   <small class="date">{{ mail.sentAt | date }}</small>

@@ -79,6 +79,9 @@ export class DetailsActionComponent {
   updateLabel(type: string) {
     this.updateMail.emit(type);
   }
+  updateStatus(type: string) {
+    this.updateMail.emit(type);
+  }
   onMore() {
     this.isModalOpen = !this.isModalOpen;
     console.log('more options', this.isModalOpen);
@@ -92,6 +95,9 @@ export class DetailsActionComponent {
         return;
       case 'more':
         this.onMore();
+        return;
+      case 'isUnread':
+        this.updateStatus(type);
         return;
       default:
         this.updateLabel(type);

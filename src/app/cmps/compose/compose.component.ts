@@ -11,6 +11,8 @@ export class ComposeComponent implements OnInit {
 
   isExpand: boolean = false;
   isMini: boolean = false;
+  gmailPattern: RegExp =
+    /^[a-zA-Z0-9_.]+[+]?[a-zA-Z0-9]+[@]{1}[a-z0-9]+[\.][a-z]+$/gm;
 
   mail = {
     to: '',
@@ -31,7 +33,7 @@ export class ComposeComponent implements OnInit {
   }
   sendMail() {
     if (!this.mail.to) {
-      alert('Can not sent mail with no destination');
+      alert('Can not send mail with no destination');
       return;
     }
     if (!this.mail.subject) {

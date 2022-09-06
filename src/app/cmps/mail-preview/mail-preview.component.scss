@@ -1,21 +1,13 @@
 @import "./../../../assets/styles/variables";
 .mail-preview {
-  // outline: 1px solid $clr3;
   min-height: 2.5em;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   border-bottom: 1px solid $clr3;
   padding: 0.25em 1em;
   width: 98%;
-
-  & > * {
-    font-weight: bold;
-  }
-
+  font-weight: bold;
   &.is-read {
     font-weight: normal;
-    & > * {
-      font-weight: bold;
-    }
   }
 
   .from {

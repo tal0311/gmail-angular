@@ -2,5 +2,6 @@
   <app-mail-preview
     *ngFor="let mail of mails$ | async"
     [mail]="mail"
+    (updateMail)="update($event)"
   ></app-mail-preview>
 </section>

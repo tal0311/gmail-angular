@@ -8,7 +8,6 @@
           data-title="{{ action.title }}"
           (click)="onAction(action.value)"
         >
-          <!-- <i [class]="action.icon"></i> -->
           <img [src]="action.icon" />
           <section class="more-actions" *ngIf="action.value === 'more'">
             <app-more-options *ngIf="isModalOpen"></app-more-options>
