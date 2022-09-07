@@ -43,10 +43,6 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
 
   update(value: string) {
     console.log('update type:', value);
-    if (value === 'isUnread') {
-      this.mailService.setIsReadStatus(this.mail.id);
-      return;
-    }
     this.mail.tab = value;
     console.log('updated mail', this.mail);
     this.mailService.save(this.mail);
@@ -59,14 +55,12 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
   onAction(value: string) {
     console.log(value);
     switch (value) {
-      case 'star':
-        this.update('starred');
-        break;
       case 'replay':
         this.replay(this.mail.id);
         break;
 
       default:
+        this.update(value);
         break;
     }
   }

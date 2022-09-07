@@ -99,7 +99,7 @@ export class MailService implements OnInit {
 
   public setIsReadStatus(mailId: string) {
     const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
-    mail.isRead = !mail.isRead;
+    mail.isRead = true;
     console.log(mail);
 
     this._mails$.next(this._mailsDb);
