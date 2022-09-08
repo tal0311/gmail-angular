@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-compose',
@@ -19,9 +19,7 @@ export class ComposeComponent implements OnInit {
     subject: '',
     content: '',
   };
-
   ngOnInit(): void {}
-
   onMinimize() {
     this.isMini = !this.isMini;
   }
@@ -37,11 +35,7 @@ export class ComposeComponent implements OnInit {
       return;
     }
     if (!this.mail.subject) {
-      if (confirm('Subject field empty')) {
-        console.log(this.mail);
-      } else {
-        return;
-      }
+      confirm('Subject field empty') ? console.log(this.mail) : null;
     }
     console.log(this.mail);
   }
