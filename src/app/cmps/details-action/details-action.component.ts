@@ -79,8 +79,8 @@ export class DetailsActionComponent {
   updateLabel(type: string) {
     this.updateMail.emit(type);
   }
-  updateStatus(type: string) {
-    this.updateMail.emit(type);
+  updateStatus(value: string) {
+    this.updateMail.emit(value);
   }
   onMore() {
     this.isModalOpen = !this.isModalOpen;

@@ -3,6 +3,7 @@ import { Mail } from './../../models/mail';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription, Observable } from 'rxjs';
+import { isJSDocThisTag } from 'typescript';
 
 @Component({
   selector: 'app-mail-details',
@@ -42,6 +43,11 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
   }
 
   update(value: string) {
+    if (value == 'isUnread') {
+      this.mail.isUnread = true;
+      this.mailService.save(this.mail);
+      return;
+    }
     console.log('update type:', value);
     this.mail.tab = value;
     console.log('updated mail', this.mail);
