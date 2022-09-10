@@ -46,6 +46,7 @@
   }
   &.isCollapsed {
     width: 3em;
+    margin-inline-start: 0.3em;
     .title,
     .label-name,
     .label-length {
@@ -53,6 +54,20 @@
     }
     .compose {
       width: inherit;
+    }
+    .active {
+      border-radius: 50%;
+      padding: 0.8em 0;
+    }
+    .side-bar-label {
+      padding: 0.8em 0;
+      .label-img {
+        transform: translateX(-12%);
+      }
+      &:hover {
+        background-color: $LabelHover;
+        border-radius: 50%;
+      }
     }
   }
 }
