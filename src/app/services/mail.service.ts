@@ -56,7 +56,7 @@ export class MailService implements OnInit, OnDestroy {
       return;
     }
 
-    this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
+    this.httpClient.get('@assets/mail.json').subscribe((mails) => {
       this._mailsDb = mails;
       const mailsForDisplay = this._mailsDb.filter(this._buildFilter);
       this._mails$.next(mailsForDisplay);
@@ -78,8 +78,6 @@ export class MailService implements OnInit, OnDestroy {
     return labels;
   }
 
-  // }
-
   public getEmptyMail() {
     return {
       id: 0,
@@ -92,13 +90,6 @@ export class MailService implements OnInit, OnDestroy {
       to: '',
     };
   }
-  // public remove(petId: string) {
-  //   const pets = this._mailsDb;
-  //   const petIdx = pets.findIndex((pet) => pet._id === petId);
-  //   pets.splice(petIdx, 1);
-  //   this._mails$.next(pets);
-  //   return of({});
-  // }
 
   public getById(mailId: string): Observable<Mail> {
     const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
