@@ -75,7 +75,7 @@
     "from": { "name": "Assaf Margalit", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
-    "isRead": false,
+    "isRead": true,
     "sentAt": 1551133930594,
     "to": "nl@subscrib.com"
   },
@@ -105,7 +105,7 @@
     "from": { "name": "Shani Aharon", "id": "105" },
     "subject": "subscribe now!",
     "body": "subscribe now to get latest adds",
-    "isRead": false,
+    "isRead": true,
     "sentAt": 1551133930594,
     "to": "nl@subscrib.com"
   }

@@ -167,6 +167,9 @@ export class MailService implements OnInit, OnDestroy {
     value = !value;
     this._isCollapsed$.next(value);
   }
+  setResize() {
+    this._isCollapsed$.next(true);
+  }
 
   ngOnDestroy(): void {
     this.userSubscription.unsubscribe();

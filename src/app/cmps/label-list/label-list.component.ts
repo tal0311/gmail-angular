@@ -22,6 +22,8 @@ export class LabelListComponent implements OnInit {
   constructor(private mailService: MailService) {
     this.labelsLength = this.mailService.getTabsLength();
   }
+
+  labelLength!: number;
   ngOnInit(): void {}
   // data
   composeUrl =
@@ -60,11 +62,9 @@ export class LabelListComponent implements OnInit {
     },
   ];
 
-  // methods
   getLength(labelName: string) {
     const labels = this.mailService.getTabsLength();
+
     return labels[labelName];
   }
-
-  // computed
 }

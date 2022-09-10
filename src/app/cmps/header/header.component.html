@@ -1,6 +1,9 @@
-<section class="app-header">
+<section class="app-header" (window:resize)="onResize($event)">
   <div class="header-content flex a-center">
-    <app-logo (toggle)="toggleMenu()"></app-logo>
+    <app-logo
+      (toggle)="toggleMenu()"
+      [isCollapsed]="isCollapsed$ | async"
+    ></app-logo>
     <app-search-input></app-search-input>
     <div class="user-actions-container">
       <app-actions (onAction)="action($event)"></app-actions>
