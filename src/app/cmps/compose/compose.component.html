@@ -24,7 +24,7 @@
   <!-- end of top bar -->
   <section class="mail-body flex">
     <section class="mail-header flex">
-      <input type="text" placeholder="From: talamit@gmail.com" />
+      <input type="text" value="From: talamit@gmail.com" />
       <input
         type="text"
         placeholder="To"
@@ -44,11 +44,10 @@
       <textarea
         class="mail-content-text"
         name="content"
-        [(ngModel)]="mail.content"
+        [(ngModel)]="mail.body"
       ></textarea>
     </section>
     <section class="bottom-panel">
-      <!-- <section>quill panel</section> -->
       <section class="submit-panel">
         <button class="send-btn" type="submit" (click)="sendMail()">
           Send

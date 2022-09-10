@@ -21,7 +21,7 @@ export class AppComponent implements OnInit {
     this.msg$ = this.userMsgService.msg$;
   }
   ngOnInit(): void {
-    this.mailService.query();
     this.userService.loadUser();
+    this.mailService.query();
   }
 }

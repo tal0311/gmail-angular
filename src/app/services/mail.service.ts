@@ -1,24 +1,32 @@
+import { UserService } from './user.service';
 import { UserMsgService } from './user-msg.service';
 import { Mail } from 'src/app/models/mail';
 import { UtilService } from './util.service';
 import { Injectable, OnInit, OnDestroy } from '@angular/core';
-import { BehaviorSubject, Observable, of, reduce } from 'rxjs';
+import { BehaviorSubject, Observable, of, Subscription } from 'rxjs';
 import { delay, map } from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { Search } from '../models/search';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MailService implements OnInit {
+export class MailService implements OnInit, OnDestroy {
   constructor(
     private httpClient: HttpClient,
     private utilsService: UtilService,
-    private msgService: UserMsgService
-  ) {}
+    private msgService: UserMsgService,
+    private userService: UserService
+  ) {
+    this.user$ = this.userService.user$;
+  }
 
+  user$!: Observable<User>;
   _mailsDb!: Mail[] | any;
   key: string = 'mail';
+  userSubscription!: Subscription;
+
   private _mails$ = new BehaviorSubject<Mail[]>([]);
   public mails$ = this._mails$.asObservable();
 
@@ -32,7 +40,9 @@ export class MailService implements OnInit {
   public isCollapsed$ = this._isCollapsed$.asObservable();
 
   ngOnInit(): void {
+    console.log('oninit');
     this.getTabsLength();
+    console.log(this.user$);
   }
 
   public query() {
@@ -56,8 +66,13 @@ export class MailService implements OnInit {
   public getTabsLength(): any {
     const labels = this._mailsDb.reduce((acc: any, curr: any) => {
       console.log();
-      let { tab } = curr;
-      acc[tab] = acc[tab] ? acc[tab] + 1 : 1;
+      if (!curr.isRead) {
+        let { tab } = curr;
+        acc[tab] = acc[tab] ? acc[tab] + 1 : 1;
+      } else if (curr.tab === 'sent') {
+        let { tab } = curr;
+        acc[tab] = acc[tab] ? acc[tab] + 1 : 1;
+      }
       return acc;
     }, {});
     return labels;
@@ -65,16 +80,14 @@ export class MailService implements OnInit {
 
   // }
 
-  public getEmptyPet() {
+  public getEmptyMail() {
     return {
-      from: {
-        tab: '',
-        name: '',
-        id: '',
-      },
+      id: 0,
+      tab: 'sent',
+      from: { name: '', id: '' },
       subject: '',
       body: '',
-      isRead: false,
+      isRead: true,
       sentAt: Date.now(),
       to: '',
     };
@@ -115,12 +128,17 @@ export class MailService implements OnInit {
     console.log('replay to mail with id', mailId);
   }
   private _add(mail: Mail) {
-    mail.id = this.utilsService.makeId();
-    mail.sentAt = Date.now();
-    mail.tab = 'sent';
-    this._mailsDb.push(mail);
+    console.log(mail);
+
+    const mailToSend = {
+      ...mail,
+      id: this.utilsService.makeId(),
+      sentAt: Date.now(),
+    };
+
+    this._mailsDb.push(mailToSend);
     this._mails$.next(this._mailsDb);
-    this.msgService.setMsg(`Mail sent to: ${mail.to}`);
+    this.msgService.setMsg(`Mail was sent to: ${mail.to}`);
     this.utilsService.saveToStorage(this.key, this._mailsDb);
     return of(mail);
   }
@@ -148,5 +166,9 @@ export class MailService implements OnInit {
     let value = this._isCollapsed$.getValue();
     value = !value;
     this._isCollapsed$.next(value);
+  }
+
+  ngOnDestroy(): void {
+    this.userSubscription.unsubscribe();
   }
 }

@@ -55,14 +55,18 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
   replay(id: string) {
     this.mailService.replay(id);
   }
-
+  moreOptions() {
+    console.log('open more options modal');
+  }
   onAction(value: string) {
     console.log(value);
     switch (value) {
       case 'replay':
         this.replay(this.mail.id);
         break;
-
+      case 'more':
+        this.moreOptions();
+        break;
       default:
         this.update(value);
         break;

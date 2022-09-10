@@ -1,3 +1,4 @@
+import { User } from './../models/user';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
@@ -6,19 +7,34 @@ import { Injectable, OnInit } from '@angular/core';
   providedIn: 'root',
 })
 export class UserService implements OnInit {
-  private _user$ = new BehaviorSubject(null);
+  private _user$ = new BehaviorSubject<User>({
+    name: '',
+    email: '',
+    fullname: '',
+    imgUrl: '',
+  });
   public user$ = this._user$.asObservable();
 
-  userDb: any;
+  loggedInUser!: User | any;
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.loadUser();
+    console.log(this.loggedInUser);
   }
   loadUser() {
+    console.log('getting user');
+
     this.http.get('./../../assets/user.json').subscribe((user) => {
-      this.userDb = user;
-      this._user$.next(this.userDb);
+      this.loggedInUser = user;
+
+      this._user$.next(this.loggedInUser);
     });
+  }
+
+  getLoggedInUser() {
+    console.log(this.loggedInUser);
+
+    return this.loggedInUser;
   }
 }
