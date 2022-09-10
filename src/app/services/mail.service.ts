@@ -97,10 +97,9 @@ export class MailService implements OnInit {
     this.query();
   }
 
-  public setIsReadStatus(mailId: string) {
+  public setIsReadStatus(mailId: string, type: string) {
     const mail = this._mailsDb.find((mail: Mail) => mail.id === mailId);
-    mail.isRead = true;
-    console.log(mail);
+    type === 'resetUnread' ? (mail.isRead = false) : (mail.isRead = true);
 
     this._mails$.next(this._mailsDb);
     this.utilsService.saveToStorage(this.key, this._mailsDb);

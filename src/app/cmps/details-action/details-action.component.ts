@@ -10,6 +10,7 @@ export class DetailsActionComponent {
   constructor(private location: Location) {}
 
   @Output() updateMail = new EventEmitter();
+  @Output() updateMailStatus = new EventEmitter();
   // data
   actions = [
     [
@@ -38,7 +39,7 @@ export class DetailsActionComponent {
       {
         icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/mail/default/20px.svg',
         title: 'Mark unread',
-        value: 'isUnread',
+        value: 'resetUnread',
       },
       {
         icon: 'https://fonts.gstatic.com/s/i/short-term/release/googlesymbols/schedule/default/20px.svg',
@@ -80,7 +81,7 @@ export class DetailsActionComponent {
     this.updateMail.emit(type);
   }
   updateStatus(value: string) {
-    this.updateMail.emit(value);
+    this.updateMailStatus.emit(value);
   }
   onMore() {
     this.isModalOpen = !this.isModalOpen;
@@ -97,6 +98,9 @@ export class DetailsActionComponent {
         this.onMore();
         return;
       case 'isUnread':
+        this.updateStatus(type);
+        return;
+      case 'resetUnread':
         this.updateStatus(type);
         return;
       default:

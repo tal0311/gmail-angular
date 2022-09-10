@@ -42,12 +42,10 @@ export class MailDetailsComponent implements OnInit, OnDestroy {
     });
   }
 
+  setMailStatus(type: string) {
+    this.mailService.setIsReadStatus(this.mail.id, type);
+  }
   update(value: string) {
-    if (value == 'isUnread') {
-      this.mail.isUnread = true;
-      this.mailService.save(this.mail);
-      return;
-    }
     console.log('update type:', value);
     this.mail.tab = value;
     console.log('updated mail', this.mail);
