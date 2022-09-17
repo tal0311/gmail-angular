@@ -25,7 +25,7 @@ export class UserService implements OnInit {
   loadUser() {
     console.log('getting user');
 
-    this.http.get('@assets/user.json').subscribe((user) => {
+    this.http.get('./../../assets/user.json').subscribe((user) => {
       this.loggedInUser = user;
 
       this._user$.next(this.loggedInUser);

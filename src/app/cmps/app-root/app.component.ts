@@ -10,7 +10,7 @@ import { UserMsgService } from 'src/app/services/user-msg.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'gmail-proj';
+  title = 'gmail-angular';
 
   msg$: Observable<string>;
   constructor(
