@@ -1,3 +1,4 @@
+import { SvgService } from './../../services/svg.service';
 import { Observable, Subscription } from 'rxjs';
 import { MailService } from './../../services/mail.service';
 import { Component, OnInit, OnDestroy } from '@angular/core';
@@ -13,7 +14,11 @@ export class MailListComponent implements OnInit, OnDestroy {
   mails$!: Observable<Mail[]>;
   currTab!: string | null;
   subscription!: Subscription;
-  constructor(private mailService: MailService, private route: ActivatedRoute) {
+  constructor(
+    private mailService: MailService,
+    private route: ActivatedRoute,
+    private svgService: SvgService
+  ) {
     this.mails$ = mailService.mails$;
   }
 
