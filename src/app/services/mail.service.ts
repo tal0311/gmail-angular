@@ -56,7 +56,7 @@ export class MailService implements OnInit, OnDestroy {
       return;
     }
 
-    this.httpClient.get('./../../assets/mail.json').subscribe((mails) => {
+    this.httpClient.get('assets/mail.json').subscribe((mails) => {
       this._mailsDb = mails;
       const mailsForDisplay = this._mailsDb.filter(this._buildFilter);
       this._mails$.next(mailsForDisplay);
